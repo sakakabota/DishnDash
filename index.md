@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Dish-n-Dash: The Ultimate Robotic Dish Clearer
+title: "Dish-n-Dash: The Ultimate Robotic Dish Clearer"
 ---
 
 # Welcome to Dish-n-Dash
