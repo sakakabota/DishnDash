@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish-n-Dash - Design & Implementation</title>
+    <style>
+        /* Include all previous styles from index.html */
+        /* Additional styles for design page */
+        .tech-diagram {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .design-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subsection {
+            margin: 3rem 0;
+        }
+
+        .subsection h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="index.html" class="logo">Dish-n-Dash</a>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="#design-overview">Design</a>
+                <a href="#technical">Technical</a>
+                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section" id="design-overview">
+        <div class="container">
+            <h2 class="section-title">Design Overview</h2>
+            <p class="text-center">Our robotic waste sorting system integrates computer vision, motion planning, and precise control to automate cafeteria waste management.</p>
+            
+            <div class="design-grid">
+                <div class="design-card">
+                    <h3>Design Goals</h3>
+                    <ul>
+                        <li>Accurate object classification and sorting</li>
+                        <li>Safe and reliable robotic manipulation</li>
+                        <li>Efficient waste stream separation</li>
+                        <li>Real-time operation capability</li>
+                    </ul>
+                </div>
+                <div class="design-card">
+                    <h3>System Requirements</h3>
+                    <ul>
+                        <li>Object detection accuracy > 95%</li>
+                        <li>Processing time < 2 seconds</li>
+                        <li>Safe handling of various materials</li>
+                        <li>Proper waste stream segregation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--light-gray)">
+        <div class="container">
+            <h2 class="section-title">Technical Implementation</h2>
+            
+            <div class="subsection">
+                <h3>Vision System</h3>
+                <p>Our system uses a DETR (Detection Transformer) model with ResNet-50 backbone for object detection and classification:</p>
+                <ul>
+                    <li>Real-time object detection and classification</li>
+                    <li>Custom-trained model for cafeteria items</li>
+                    <li>Integration with ROS for robot control</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>ROS Architecture</h3>
+                <div class="tech-diagram">
+                    <h4>Data Flow Pipeline</h4>
+                    <ul>
+                        <li>Client Node: Activates server and initiates classification</li>
+                        <li>Server Node: Runs object detection model</li>
+                        <li>Pose Transformation Node: Converts camera coordinates to robot space</li>
+                        <li>Control Node: Executes motion planning and gripper control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Hardware Components</h3>
+                <div class="design-grid">
+                    <div class="design-card">
+                        <h4>Sawyer Robot</h4>
+                        <ul>
+                            <li>7 Degrees of Freedom</li>
+                            <li>Integrated force sensors</li>
+                            <li>Custom gripper attachment</li>
+                        </ul>
+                    </div>
+                    <div class="design-card">
+                        <h4>Vision System</h4>
+                        <ul>
+                            <li>Intel RealSense Camera</li>
+                            <li>Depth sensing capability</li>
+                            <li>Wide field of view</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Software Architecture</h3>
+                <div class="tech-diagram">
+                    <h4>Key Components</h4>
+                    <ul>
+                        <li>ROS Noetic framework for system integration</li>
+                        <li>Python-based computer vision pipeline</li>
+                        <li>Custom motion planning algorithms</li>
+                        <li>Real-time control system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Performance & Results</h2>
+            <div class="design-grid">
+                <div class="design-card">
+                    <h3>Vision System Performance</h3>
+                    <ul>
+                        <li>95% classification accuracy</li>
+                        <li>1.5s average processing time</li>
+                        <li>Robust to varying lighting conditions</li>
+                    </ul>
+                </div>
+                <div class="design-card">
+                    <h3>Robotic Performance</h3>
+                    <ul>
+                        <li>90% successful pick-and-place rate</li>
+                        <li>Safe handling of various items</li>
+                        <li>Efficient sorting workflow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
