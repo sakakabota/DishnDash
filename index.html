@@ -44,16 +44,6 @@
             padding: 2rem;
         }
 
-        .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: #4b5563;
-        }
-
         .hero-image {
             flex: 1;
             display: flex;
@@ -66,11 +56,6 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .sawyer-img:hover {
-            transform: scale(1.02);
         }
 
         .container {
@@ -104,15 +89,31 @@
             text-align: center;
         }
 
-        .feature-card img {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 1rem;
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .feature-card h3 {
-            margin-bottom: 1rem;
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
             color: var(--primary-color);
+            text-decoration: none;
         }
 
         .team-section {
@@ -141,33 +142,6 @@
             background-color: #2563eb;
         }
 
-        .nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
         @media (max-width: 768px) {
             .hero-container {
                 flex-direction: column;
@@ -178,10 +152,6 @@
                 order: -1;
             }
             
-            .sawyer-img {
-                max-width: 80%;
-            }
-
             .nav-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -199,8 +169,10 @@
             <a href="index.html" class="logo">Dish-n-Dash</a>
             <div>
                 <a href="#about">About</a>
-                <a href="design.html">Design</a>
+                <a href="#features">Features</a>
                 <a href="#team">Team</a>
+                <a href="design.html">Design</a>
+                <a href="implementation.html">Implementation</a>
                 <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
             </div>
         </div>
@@ -265,7 +237,7 @@
     <section class="cta">
         <div class="container">
             <h2 class="section-title">Learn More About Our Project</h2>
-            <a href="https://github.com/sakakabota/DishnDash" class="button">View on GitHub</a>
+            <a href="design.html" class="button">View Design Details</a>
         </div>
     </section>
 </body>
