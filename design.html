@@ -3,24 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish-n-Dash - Design & Implementation</title>
+    <title>Dish-n-Dash - System Design</title>
     <style>
-        /* Include all previous styles from index.html */
-        /* Additional styles for design page */
-        .tech-diagram {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 2rem 0;
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
         }
 
-        .code-block {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            font-family: monospace;
-            overflow-x: auto;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .subsection {
+            margin: 3rem 0;
+        }
+
+        .subsection h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
         .design-grid {
@@ -37,13 +90,32 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .subsection {
-            margin: 3rem 0;
+        .tech-diagram {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
         }
 
-        .subsection h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+        ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links a {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -52,124 +124,100 @@
         <div class="nav-links">
             <a href="index.html" class="logo">Dish-n-Dash</a>
             <div>
-                <a href="index.html">Home</a>
-                <a href="#design-overview">Design</a>
-                <a href="#technical">Technical</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#team">Team</a>
+                <a href="design.html">Design</a>
+                <a href="implementation.html">Implementation</a>
                 <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
             </div>
         </div>
     </nav>
 
-    <section class="section" id="design-overview">
-        <div class="container">
-            <h2 class="section-title">Design Overview</h2>
-            <p class="text-center">Our robotic waste sorting system integrates computer vision, motion planning, and precise control to automate cafeteria waste management.</p>
-            
-            <div class="design-grid">
-                <div class="design-card">
-                    <h3>Design Goals</h3>
-                    <ul>
-                        <li>Accurate object classification and sorting</li>
-                        <li>Safe and reliable robotic manipulation</li>
-                        <li>Efficient waste stream separation</li>
-                        <li>Real-time operation capability</li>
-                    </ul>
-                </div>
-                <div class="design-card">
-                    <h3>System Requirements</h3>
-                    <ul>
-                        <li>Object detection accuracy > 95%</li>
-                        <li>Processing time < 2 seconds</li>
-                        <li>Safe handling of various materials</li>
-                        <li>Proper waste stream segregation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: var(--light-gray)">
-        <div class="container">
-            <h2 class="section-title">Technical Implementation</h2>
-            
-            <div class="subsection">
-                <h3>Vision System</h3>
-                <p>Our system uses a DETR (Detection Transformer) model with ResNet-50 backbone for object detection and classification:</p>
-                <ul>
-                    <li>Real-time object detection and classification</li>
-                    <li>Custom-trained model for cafeteria items</li>
-                    <li>Integration with ROS for robot control</li>
-                </ul>
-            </div>
-
-            <div class="subsection">
-                <h3>ROS Architecture</h3>
-                <div class="tech-diagram">
-                    <h4>Data Flow Pipeline</h4>
-                    <ul>
-                        <li>Client Node: Activates server and initiates classification</li>
-                        <li>Server Node: Runs object detection model</li>
-                        <li>Pose Transformation Node: Converts camera coordinates to robot space</li>
-                        <li>Control Node: Executes motion planning and gripper control</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3>Hardware Components</h3>
-                <div class="design-grid">
-                    <div class="design-card">
-                        <h4>Sawyer Robot</h4>
-                        <ul>
-                            <li>7 Degrees of Freedom</li>
-                            <li>Integrated force sensors</li>
-                            <li>Custom gripper attachment</li>
-                        </ul>
-                    </div>
-                    <div class="design-card">
-                        <h4>Vision System</h4>
-                        <ul>
-                            <li>Intel RealSense Camera</li>
-                            <li>Depth sensing capability</li>
-                            <li>Wide field of view</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3>Software Architecture</h3>
-                <div class="tech-diagram">
-                    <h4>Key Components</h4>
-                    <ul>
-                        <li>ROS Noetic framework for system integration</li>
-                        <li>Python-based computer vision pipeline</li>
-                        <li>Custom motion planning algorithms</li>
-                        <li>Real-time control system</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Performance & Results</h2>
-            <div class="design-grid">
-                <div class="design-card">
-                    <h3>Vision System Performance</h3>
+            <h2 class="section-title">System Design</h2>
+            
+            <div class="subsection">
+                <h3>Design Goals</h3>
+                <div class="design-grid">
+                    <div class="design-card">
+                        <h4>Primary Objectives</h4>
+                        <ul>
+                            <li>Automate cafeteria waste sorting process</li>
+                            <li>Minimize contamination between waste streams</li>
+                            <li>Ensure safe and reliable operation</li>
+                            <li>Process items in real-time</li>
+                        </ul>
+                    </div>
+                    <div class="design-card">
+                        <h4>Technical Requirements</h4>
+                        <ul>
+                            <li>Object detection with >95% accuracy</li>
+                            <li>Processing time under 2 seconds</li>
+                            <li>Safe robot movements</li>
+                            <li>Reliable item classification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>System Architecture</h3>
+                <div class="tech-diagram">
+                    <h4>High-Level Architecture</h4>
                     <ul>
-                        <li>95% classification accuracy</li>
-                        <li>1.5s average processing time</li>
-                        <li>Robust to varying lighting conditions</li>
+                        <li>Vision System
+                            <ul>
+                                <li>DETR-based object detection</li>
+                                <li>Real-time image processing</li>
+                                <li>Object classification system</li>
+                            </ul>
+                        </li>
+                        <li>Robot Control
+                            <ul>
+                                <li>Inverse kinematics for movement</li>
+                                <li>Path planning algorithms</li>
+                                <li>Gripper control system</li>
+                            </ul>
+                        </li>
+                        <li>Integration Layer
+                            <ul>
+                                <li>ROS communication framework</li>
+                                <li>Coordinate transformation system</li>
+                                <li>State management</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                <div class="design-card">
-                    <h3>Robotic Performance</h3>
+            </div>
+
+            <div class="subsection">
+                <h3>Design Approach</h3>
+                <div class="tech-diagram">
+                    <h4>Core Components</h4>
                     <ul>
-                        <li>90% successful pick-and-place rate</li>
-                        <li>Safe handling of various items</li>
-                        <li>Efficient sorting workflow</li>
+                        <li>Client-Server Architecture
+                            <ul>
+                                <li>DETR server for object detection</li>
+                                <li>Client script on Sawyer robot</li>
+                                <li>HTTP-based communication</li>
+                            </ul>
+                        </li>
+                        <li>Motion Planning
+                            <ul>
+                                <li>Bowl detection and grasping</li>
+                                <li>Content classification logic</li>
+                                <li>Bin selection and disposal</li>
+                            </ul>
+                        </li>
+                        <li>Safety Considerations
+                            <ul>
+                                <li>Workspace monitoring</li>
+                                <li>Collision avoidance</li>
+                                <li>Emergency stop system</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
