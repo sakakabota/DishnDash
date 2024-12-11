@@ -191,37 +191,27 @@
                     </ul>
                 </div>
             </div>
-
+            
             <div class="subsection">
                 <h3>Design Approach</h3>
                 <div class="tech-diagram">
                     <h4>Core Components</h4>
-                    <ul>
-                        <li>Client-Server Architecture
-                            <ul>
-                                <li>DETR server for object detection</li>
-                                <li>Client script on Sawyer robot</li>
-                                <li>HTTP-based communication</li>
-                            </ul>
-                        </li>
-                        <li>Motion Planning
-                            <ul>
-                                <li>Bowl detection and grasping</li>
-                                <li>Content classification logic</li>
-                                <li>Bin selection and disposal</li>
-                            </ul>
-                        </li>
-                        <li>Safety Considerations
-                            <ul>
-                                <li>Workspace monitoring</li>
-                                <li>Collision avoidance</li>
-                                <li>Emergency stop system</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <p>At the foundation of our design is a robust client-server architecture. We've deployed our DETR object detection 
+                    model on a dedicated server at Berkeley's data center, which communicates with a client script running on our Sawyer 
+                    robot. This separation allows us to leverage powerful computing resources for vision processing while maintaining 
+                    responsive robot control.</p>
+            
+                    <p>The motion planning system orchestrates the robot's actions with precision. When a bowl is detected, our system 
+                    calculates the optimal path for grasping and lifting it. The content classification logic then determines whether 
+                    the items inside are compostable food waste or reusable utensils, directing the robot to the appropriate disposal 
+                    location. Each movement is carefully planned to ensure smooth, efficient operation.</p>
+            
+                    <p>Safety is woven into every aspect of our design. Real-time workspace monitoring ensures the robot operates 
+                    safely in a dynamic environment, while our collision avoidance system prevents any unwanted interactions. An 
+                    emergency stop system stands ready to halt operations if needed, making our system not just efficient but 
+                    also reliable and safe for cafeteria environments.</p>
                 </div>
             </div>
-        </div>
     </section>
 </body>
 </html>
