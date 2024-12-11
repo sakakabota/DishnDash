@@ -84,30 +84,62 @@
             margin: 2rem 0;
         }
 
-        .code-block {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            font-family: monospace;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-
-        .tech-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .image-container {
             margin: 2rem 0;
+            text-align: center;
         }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 2rem;
-            margin: 1rem 0;
+        .tech-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        li {
-            margin: 0.5rem 0;
+        .image-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .implementation-text {
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .pipeline-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pipeline-diagram {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pipeline-details {
+            margin-top: 3rem;
+        }
+
+        .pipeline-stage {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pipeline-stage h4 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -139,108 +171,110 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Technical Implementation</h2>
-
+            
             <div class="subsection">
                 <h3>Vision System Implementation</h3>
                 <div class="implementation-card">
-                    <h4>DETR Server Setup</h4>
-                    <ul>
-                        <li>Server Location: honeydew.ist.berkeley.edu</li>
-                        <li>Server Address: http://128.32.176.100:8000</li>
-                        <li>Object Detection: DETR with ResNet-50 backbone</li>
-                        <li>Tested Objects: apple, orange, banana, plastic spoon, plastic fork</li>
-                    </ul>
-                    <div class="code-block">
-                        <p>Client Query Process:</p>
-                        <p>1. Camera captures input</p>
-                        <p>2. Image sent to DETR server</p>
-                        <p>3. Server returns bounding box and centroid</p>
-                        <p>4. Results processed for robot control</p>
+                    <div class="image-container">
+                        <img src="assets/realsense.png" alt="Intel RealSense Camera" class="tech-image">
+                        <p class="image-caption">Intel RealSense Depth Camera</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3>Team Contributions</h3>
-                <div class="tech-details">
-                    <div class="implementation-card">
-                        <h4>Vision System (Ria)</h4>
-                        <ul>
-                            <li>DETR/YOLOv8 implementation for object detection</li>
-                            <li>Created dataset with 20 images per object</li>
-                            <li>Developed classification system</li>
-                            <li>Implemented server-client communication</li>
-                        </ul>
-                    </div>
-                    <div class="implementation-card">
-                        <h4>Coordinate System (Pranitha)</h4>
-                        <ul>
-                            <li>Camera-to-robot transformation matrix</li>
-                            <li>2D to 3D coordinate conversion</li>
-                            <li>Point detection accuracy verification</li>
-                            <li>System calibration and testing</li>
-                        </ul>
-                    </div>
-                    <div class="implementation-card">
-                        <h4>Motion Planning (Steph)</h4>
-                        <ul>
-                            <li>Trajectory planning implementation</li>
-                            <li>Path planning with obstacle avoidance</li>
-                            <li>Motion sequence testing</li>
-                            <li>Presentation script preparation</li>
-                        </ul>
-                    </div>
-                    <div class="implementation-card">
-                        <h4>Integration (Abby)</h4>
-                        <ul>
-                            <li>System component integration</li>
-                            <li>Error handling implementation</li>
-                            <li>Recovery behavior programming</li>
-                            <li>Documentation and presentation</li>
-                        </ul>
-                    </div>
+                    <p class="implementation-text">
+                        Our vision system leverages the powerful combination of an Intel RealSense depth camera and a 
+                        Detection Transformer (DETR) model for robust object detection. We deployed our DETR server on 
+                        Berkeley's honeydew.ist data center (128.32.176.100:8000), utilizing a ResNet-50 backbone for 
+                        efficient feature extraction and reliable object detection.
+                    </p>
+                    
+                    <p class="implementation-text">
+                        The RealSense camera provides both RGB imagery and precise depth information, enabling our system 
+                        to accurately locate objects in 3D space. We mounted the camera above our workspace, providing 
+                        a clear view of the sorting area while avoiding interference with the robot's movements.
+                    </p>
+            
+                    <p class="implementation-text">
+                        For object detection, we trained our system on a custom dataset featuring common cafeteria items: 
+                        apples, oranges, bananas, and various utensils. Each item was photographed from multiple angles 
+                        and positions, creating a robust training set that ensures reliable detection regardless of the 
+                        object's orientation.
+                    </p>
+            
+                    <p class="implementation-text">
+                        When an image is captured, our client script processes and sends it to the DETR server, which 
+                        returns precise bounding box coordinates and object centroids. This information is then transformed 
+                        into robot coordinates, enabling accurate picking and sorting movements.
+                    </p>
                 </div>
             </div>
 
             <div class="subsection">
                 <h3>System Pipeline</h3>
                 <div class="implementation-card">
-                    <h4>Process Flow</h4>
-                    <ol>
-                        <li>Image Acquisition and Processing
-                            <ul>
-                                <li>Camera captures scene image</li>
-                                <li>Image preprocessed for detection</li>
-                                <li>DETR server processes image</li>
-                            </ul>
-                        </li>
-                        <li>Object Detection and Classification
-                            <ul>
-                                <li>Identify bowl and contents</li>
-                                <li>Calculate object centroids</li>
-                                <li>Determine object type (food vs utensil)</li>
-                            </ul>
-                        </li>
-                        <li>Robot Control
-                            <ul>
-                                <li>Transform coordinates to robot space</li>
-                                <li>Plan and execute motion</li>
-                                <li>Sort items into appropriate bins</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3>Technical Challenges</h3>
-                <div class="implementation-card">
-                    <ul>
-                        <li>Server communication and reliability</li>
-                        <li>Coordinate transformation accuracy</li>
-                        <li>Object detection in varying positions</li>
-                        <li>Integration of vision and motion systems</li>
-                    </ul>
+                    <div class="pipeline-diagram">
+                        <svg viewBox="0 0 800 200">
+                            <rect x="20" y="30" width="160" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                            <rect x="220" y="30" width="160" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                            <rect x="420" y="30" width="160" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                            <rect x="620" y="30" width="160" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                            
+                            <path d="M180 70 L220 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <path d="M380 70 L420 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <path d="M580 70 L620 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+                                </marker>
+                            </defs>
+                            
+                            <text x="100" y="75" text-anchor="middle" font-family="system-ui" font-size="16" fill="#1f2937">Vision Processing</text>
+                            <text x="300" y="75" text-anchor="middle" font-family="system-ui" font-size="16" fill="#1f2937">Coordinate Transform</text>
+                            <text x="500" y="75" text-anchor="middle" font-family="system-ui" font-size="16" fill="#1f2937">Motion Planning</text>
+                            <text x="700" y="75" text-anchor="middle" font-family="system-ui" font-size="16" fill="#1f2937">Execution</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="pipeline-details">
+                        <div class="pipeline-stage">
+                            <h4>Vision Processing</h4>
+                            <p class="implementation-text">
+                                Our vision system begins with image capture through the Intel RealSense camera, feeding 
+                                directly into our DETR-based detection model running on Berkeley's servers. This stage 
+                                processes real-time imagery to identify bowls, food items, and utensils with high precision, 
+                                providing crucial object classification and location data for downstream processing.
+                            </p>
+                        </div>
+            
+                        <div class="pipeline-stage">
+                            <h4>Coordinate Transform</h4>
+                            <p class="implementation-text">
+                                The system then transforms detected object coordinates from camera space to robot space 
+                                through a carefully calibrated transformation matrix. This crucial step ensures accurate 
+                                spatial awareness, enabling precise object manipulation by converting 2D camera detections 
+                                into 3D coordinates that the robot can understand and act upon.
+                            </p>
+                        </div>
+            
+                        <div class="pipeline-stage">
+                            <h4>Motion Planning</h4>
+                            <p class="implementation-text">
+                                With transformed coordinates in hand, our motion planning system calculates optimal 
+                                trajectories for the Sawyer robot. This includes planning pick-up movements for bowls, 
+                                determining appropriate tilting angles for content disposal, and ensuring collision-free 
+                                paths to the correct disposal locations based on content classification.
+                            </p>
+                        </div>
+            
+                        <div class="pipeline-stage">
+                            <h4>Execution</h4>
+                            <p class="implementation-text">
+                                The final stage executes the planned motions with precise control. The system monitors 
+                                each movement in real-time, ensuring safe and accurate completion of the sorting task. 
+                                This includes bowl grasping, content disposal into appropriate bins (compost for food, 
+                                dishes for utensils), and returning to the ready position for the next item.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
