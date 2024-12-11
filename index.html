@@ -1,297 +1,65 @@
-Last login: Tue Dec  3 18:53:23 on ttys006
-(base) sakakabota@wifi-10-41-75-226 ~ % cd documents
-(base) sakakabota@wifi-10-41-75-226 documents % cd c106a
-(base) sakakabota@wifi-10-41-75-226 c106a % mkdir final        
-(base) sakakabota@wifi-10-41-75-226 c106a % cd final
-(base) sakakabota@wifi-10-41-75-226 final % git clone https://github.com/sakakabota/DishnDash.git
-Cloning into 'DishnDash'...
-warning: You appear to have cloned an empty repository.
-(base) sakakabota@wifi-10-41-75-226 final % cd DishnDash
-(base) sakakabota@wifi-10-41-75-226 DishnDash % echo "<!DOCTYPE html><html><head><title>My Website</title></head><body><h1>Welcome to My Website</h1></body></html>" > index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dish-n-Dash: Robotics Project</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Dish-n-Dash</h1>
+    <p>The Ultimate Robotic Dish Clearer</p>
+  </header>
 
-zsh: event not found: DOCTYPE
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.html
+  <main>
+    <section>
+      <h2>About the Project</h2>
+      <p>Dish-n-Dash is a cutting-edge robotics project designed to automate waste sorting in school cafeterias. Using advanced object detection and robotics systems, it reduces contamination, streamlines recycling processes, and promotes sustainability.</p>
+    </section>
 
-(base) sakakabota@wifi-10-41-75-226 DishnDash % ls
-index.html
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add .
-git commit -m "Add index.html file"
-git push origin main
+    <section>
+      <h2>Project Goals</h2>
+      <ul>
+        <li>Automate waste sorting to reduce human error.</li>
+        <li>Minimize waste contamination and optimize recycling efficiency.</li>
+        <li>Encourage eco-friendly behaviors in school settings.</li>
+      </ul>
+    </section>
 
-[main (root-commit) 9d1c29c] Add index.html file
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
+    <section>
+      <h2>How It Works</h2>
+      <p>Dish-n-Dash uses a robust pipeline:</p>
+      <ol>
+        <li><strong>Object Detection:</strong> Identifies dishes and their contents using a DETR-based model.</li>
+        <li><strong>Classification:</strong> Sorts waste into compost, recycling, or dish trays.</li>
+        <li><strong>Robotics Handling:</strong> Uses inverse kinematics to precisely manipulate dishes.</li>
+      </ol>
+    </section>
 
-    git config --global --edit
+    <section>
+      <h2>Challenges and Solutions</h2>
+      <p>Throughout development, we faced key challenges:</p>
+      <ul>
+        <li>Correctly tilting bowls for waste disposal.</li>
+        <li>Handling classification errors for certain object orientations.</li>
+        <li>Preventing hardware collisions caused by short USB-C cables.</li>
+      </ul>
+      <p>Our innovative solutions included refining pose estimation algorithms and optimizing hardware configurations.</p>
+    </section>
 
-After doing this, you may fix the identity used for this commit with:
+    <section>
+      <h2>Future Improvements</h2>
+      <p>To enhance Dish-n-Dash, we plan to:</p>
+      <ul>
+        <li>Integrate "Grasp Anything" models for handling diverse objects.</li>
+        <li>Expand the classification model for more waste categories.</li>
+        <li>Implement failure detection and recovery systems.</li>
+      </ul>
+    </section>
+  </main>
 
-    git commit --amend --reset-author
-
- 1 file changed, 10 insertions(+)
- create mode 100644 index.html
-Username for 'https://github.com': sakakabota
-Password for 'https://sakakabota@github.com': 
-remote: Support for password authentication was removed on August 13, 2021.
-remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
-fatal: Authentication failed for 'https://github.com/sakakabota/DishnDash.git/'
-(base) sakakabota@wifi-10-41-75-226 DishnDash % ssh-keygen -t rsa -b 4096 -C "sakakabota@gmail.com"  
-
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/sakakabota/.ssh/id_rsa): 
-Created directory '/Users/sakakabota/.ssh'.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /Users/sakakabota/.ssh/id_rsa
-Your public key has been saved in /Users/sakakabota/.ssh/id_rsa.pub
-The key fingerprint is:
-SHA256:a/cJYskG2sx8LkRlWj2aqMBTAPyKOqjc++jc6Ib2E/Q sakakabota@gmail.com
-The key's randomart image is:
-+---[RSA 4096]----+
-|o...     .       |
-| .  .   + o      |
-| ...   * o .     |
-|  +o  + o        |
-|. oo.o. S        |
-|.. ..E.o o       |
-|o . o.= X o      |
-|=ooo+ .* o o .   |
-|+o=X+o ..   o    |
-+----[SHA256]-----+
-(base) sakakabota@wifi-10-41-75-226 DishnDash % cat ~/.ssh/id_rsa.pub
-
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDAe+wN3pPcohl6Degd9rMUzu+5ck6OJ2tfSxqxp5jkmtzDCQ1xdFBER6G2HDD9ZaqpzG03BE3EfhcipkpK+TgUseJankRyCii73iS+9LSiSbkeB0X3JCMsiF6HdnvWqGSMCHny4qxoMy+D+LdDSCH/MoAtMhEsEuEeAV9YW0L8eLSN0SvL9iRYCM4YIHzE4rN41gs9rk/9AhEMXbItIQjm+5ghC9dlPdYugljj7Kzswza+V2Jextnu/sILbf67Ba7PGLJLxyC9S+kqPCm73zJudkrD6NIcggMkdSXsICFfU5A1CZ/NKcJhbrsmdROdUEVT0etfiLHWqdnWTRi92wQmmHtCJyT6ZtDQ8Hcbp2xNgV7YP5bjftX6HE163khg05P2g2ocU5OatpbuLddukmTHISL+J4y+2dqCKoaz/k+deNExVpAKwqJLLvlwIrvCjYJcP3hdgjtYtgXRmncjlIY2wqoTFY4sTYeBH93gqenDxce7tI0yj78Wh2ARm4lCbmdoy6CdJ39VL0SK3ah0LCN70+jSgBX9QPmdNnOzo3v2QNxpK3jYC7M4gZObzyTjVBpzkfJ9xJ9zWkQZ7fDJFJqrti5pE8gxBncdAluCh6ntdKy610z+N1ZrvnrsNSWA4ZyMScjM4m+oVsMOfkqSOYyyApLC3OjGNXrFe5nPiLaMJQ== sakakabota@gmail.com
-(base) sakakabota@wifi-10-41-75-226 DishnDash % cd ..
-(base) sakakabota@wifi-10-41-75-226 final % cd DishnDash
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git remote set-url origin git@github.com:sakakabota/DishnDash.git
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git remote -v
-
-origin	git@github.com:sakakabota/DishnDash.git (fetch)
-origin	git@github.com:sakakabota/DishnDash.git (push)
-(base) sakakabota@wifi-10-41-75-226 DishnDash % ssh -T git@github.com
-
-The authenticity of host 'github.com (140.82.113.4)' can't be established.
-ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
-Hi sakakabota! You've successfully authenticated, but GitHub does not provide shell access.
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add .
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git commit -m "index.html file"
-On branch main
-Your branch is based on 'origin/main', but the upstream is gone.
-  (use "git branch --unset-upstream" to fixup)
-
-nothing to commit, working tree clean
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git push origin main
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 329 bytes | 329.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To github.com:sakakabota/DishnDash.git
- * [new branch]      main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano _config.yml
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add _config.yml
-git commit -m "Apply Minimal theme"
-git push origin main
-
-[main 670219e] Apply Minimal theme
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 2 insertions(+)
- create mode 100644 _config.yml
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 327 bytes | 327.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To github.com:sakakabota/DishnDash.git
-   9d1c29c..670219e  main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.md
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.md
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add index.md
-git commit -m "Add homepage"
-git push origin main
-
-[main aaa293e] Add homepage
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 21 insertions(+)
- create mode 100644 index.md
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 674 bytes | 674.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To github.com:sakakabota/DishnDash.git
-   670219e..aaa293e  main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano problem.md
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.md
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add index.md
-
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git commit -m "Update homepage content"
-
-[main e13d887] Update homepage content
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 41 insertions(+)
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git push origin main
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 1.49 KiB | 1.49 MiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:sakakabota/DishnDash.git
-   aaa293e..e13d887  main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano problem.md
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add problem.md
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git commit -m "problem and goals content"
-[main 93c4077] problem and goals content
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 41 insertions(+)
- create mode 100644 problem.md
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git push origin main
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 1.21 KiB | 1.21 MiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:sakakabota/DishnDash.git
-   e13d887..93c4077  main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.md
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add index.md
-git commit -m "Fix YAML front matter in index.md"
-git push origin main
-'
-quote> 
-(base) sakakabota@wifi-10-41-75-226 DishnDash % git add index.md
-git commit -m "Fix YAML front matter in index.md"
-git push origin main
-[main d88270c] Fix YAML front matter in index.md
- Committer: Stephanie Akakabota <sakakabota@wifi-10-41-75-226.wifi.berkeley.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To github.com:sakakabota/DishnDash.git
-   93c4077..d88270c  main -> main
-(base) sakakabota@wifi-10-41-75-226 DishnDash % nano index.md
-
-  UW PICO 5.09                                                           File: index.md                                                             
-
----
-layout: default
-title: "Dish-n-Dash: The Ultimate Robotic Dish Clearer"
----
-
-# Welcome to Dish-n-Dash
-
-Imagine a world where sorting waste is effortless, efficient, and environmentally friendly. Meet **Dish-n-Dash**, a cutting-edge robotic system des$
-
-We are **Team 13**, a group of passionate engineering students committed to tackling real-world problems through innovative robotics solutions. Dis$
-
----
-
-## About Dish-n-Dash
-
-Dish-n-Dash is not just a robot—it’s a promise to make sustainability a reality. Our automated system classifies dishware contents using advanced o$
-
----
-
-## Explore the Project
-
-- **[Problem and Goals](problem.md):** Understand the challenges we aimed to solve and the objectives that drove us.
-- **[Pipeline and Systems](pipeline.md):** Dive into the technical details and learn how Dish-n-Dash operates step by step.
-- **[Challenges](challenges.md):** Discover the obstacles we faced during development and how we overcame them.
-- **[Future Improvements](improvements.md):** See where Dish-n-Dash is headed and how it can evolve further.
-
----
-
-## Meet the Team
-
-Our diverse team of problem-solvers brought Dish-n-Dash to life:
-- **Pranitha Rao**: Software and Systems Integration.
-- **Ria Doshi**: Object Detection and Classification.
-- **Stephanie Akakabota**: Robotics Motion Planning.
-- **Abby O’Neill**: Hardware and Assembly.
-
-
-
+  <footer>
+    <p>&copy; 2024 Dish-n-Dash Team</p>
+  </footer>
+</body>
+</html>
