@@ -26,20 +26,51 @@
 
         .hero {
             background-color: var(--secondary-color);
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
         }
 
-        .hero h1 {
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .hero-text h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 1.25rem;
             color: #4b5563;
-            max-width: 800px;
-            margin: 0 auto;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sawyer-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sawyer-img:hover {
+            transform: scale(1.02);
         }
 
         .container {
@@ -138,10 +169,19 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
             }
             
+            .hero-image {
+                order: -1;
+            }
+            
+            .sawyer-img {
+                max-width: 80%;
+            }
+
             .nav-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -167,8 +207,15 @@
     </nav>
 
     <section class="hero">
-        <h1>Dish-n-Dash</h1>
-        <p>The Ultimate Robotic Solution for Smart Waste Management in Schools</p>
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Dish-n-Dash</h1>
+                <p>The Ultimate Robotic Solution for Smart Waste Management in Schools</p>
+            </div>
+            <div class="hero-image">
+                <img src="assets/sawyer.png" alt="Sawyer Robot" class="sawyer-img">
+            </div>
+        </div>
     </section>
 
     <section class="section" id="about">
