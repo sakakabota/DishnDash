@@ -3,215 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish-n-Dash - System Design</title>
-    <style>
-        :root {
-            --primary-color: #3b82f6;
-            --secondary-color: #dbeafe;
-            --text-color: #1f2937;
-            --light-gray: #f3f4f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .subsection {
-            margin: 3rem 0;
-        }
-
-        .subsection h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .design-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tech-diagram {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 2rem;
-            margin: 1rem 0;
-        }
-
-        li {
-            margin: 0.5rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav-links a {
-                margin-left: 0;
-            }
-        }
-    </style>
+    <title>Design</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-links">
-            <a href="index.html" class="logo">Dish-n-Dash</a>
-            <div>
-                <a href="index.html#about">About</a>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#team">Team</a>
-                <a href="design.html">Design</a>
-                <a href="implementation.html">Implementation</a>
-                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <h1>Design</h1>
+        <p>An in-depth look at the design choices and criteria for Dish-n-Dash.</p>
+    </header>
+    <section>
+        <h2>Design Criteria</h2>
+        <p>The primary design goal was to create a system capable of accurately sorting waste items with minimal human intervention. The following criteria were considered:</p>
+        <ul>
+            <li>High accuracy in classifying waste categories (e.g., compost, recycling).</li>
+            <li>Seamless integration with existing cafeteria setups.</li>
+            <li>Durability and robustness to handle real-world use cases.</li>
+            <li>Cost-effectiveness for deployment in schools.</li>
+        </ul>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">System Design</h2>
-            
-            <div class="subsection">
-                <h3>Design Goals</h3>
-                <div class="design-grid">
-                    <div class="design-card">
-                        <h4>Primary Objectives</h4>
-                        <ul>
-                            <li>Automate cafeteria waste sorting process</li>
-                            <li>Minimize contamination between waste streams</li>
-                            <li>Ensure safe and reliable operation</li>
-                            <li>Process items in real-time</li>
-                        </ul>
-                    </div>
-                    <div class="design-card">
-                        <h4>Technical Requirements</h4>
-                        <ul>
-                            <li>Object detection with >95% accuracy</li>
-                            <li>Processing time under 2 seconds</li>
-                            <li>Safe robot movements</li>
-                            <li>Reliable item classification</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <h2>Design Overview</h2>
+        <p>Our system consists of two main components:</p>
+        <ul>
+            <li><strong>Object Detection and Classification:</strong> Using a transformer-based object detection model (DETR with ResNet-50 backbone), the system identifies items such as bowls, fruits, and utensils with high precision.</li>
+            <li><strong>Robotic Motion Planning:</strong> A robotic arm with inverse kinematics capabilities executes smooth trajectories to pick and sort items.</li>
+        </ul>
 
-            <div class="subsection">
-                <h3>System Architecture</h3>
-                <div class="tech-diagram">
-                    <h4>High-Level Architecture</h4>
-                    <ul>
-                        <li>Vision System
-                            <ul>
-                                <li>DETR-based object detection</li>
-                                <li>Real-time image processing</li>
-                                <li>Object classification system</li>
-                            </ul>
-                        </li>
-                        <li>Robot Control
-                            <ul>
-                                <li>Inverse kinematics for movement</li>
-                                <li>Path planning algorithms</li>
-                                <li>Gripper control system</li>
-                            </ul>
-                        </li>
-                        <li>Integration Layer
-                            <ul>
-                                <li>ROS communication framework</li>
-                                <li>Coordinate transformation system</li>
-                                <li>State management</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="subsection">
-                <h3>Design Approach</h3>
-                <div class="tech-diagram">
-                    <h4>Core Components</h4>
-                    <p>At the foundation of our design is a robust client-server architecture. We've deployed our DETR object detection 
-                    model on a dedicated server at Berkeley's data center, which communicates with a client script running on our Sawyer 
-                    robot. This separation allows us to leverage powerful computing resources for vision processing while maintaining 
-                    responsive robot control.</p>
-            
-                    <p>The motion planning system orchestrates the robot's actions with precision. When a bowl is detected, our system 
-                    calculates the optimal path for grasping and lifting it. The content classification logic then determines whether 
-                    the items inside are compostable food waste or reusable utensils, directing the robot to the appropriate disposal 
-                    location. Each movement is carefully planned to ensure smooth, efficient operation.</p>
-            
-                    <p>Safety is woven into every aspect of our design. Real-time workspace monitoring ensures the robot operates 
-                    safely in a dynamic environment, while our collision avoidance system prevents any unwanted interactions. An 
-                    emergency stop system stands ready to halt operations if needed, making our system not just efficient but 
-                    also reliable and safe for cafeteria environments.</p>
-                </div>
-            </div>
+        <h3>Key Design Choices</h3>
+        <p>We made several important design decisions to meet our criteria:</p>
+        <ul>
+            <li>Using a depth-sensing camera to enable 3D localization of objects.</li>
+            <li>Employing robust materials for the robotic arm to handle varying weights of items.</li>
+            <li>Optimizing the software pipeline to reduce latency in object detection and motion execution.</li>
+        </ul>
+
+        <h3>Challenges and Trade-offs</h3>
+        <p>While formulating the design, we faced some trade-offs:</p>
+        <ul>
+            <li>Balancing cost and accuracy: Advanced components like a depth camera and transformer model increased costs.</li>
+            <li>Simplifying grasp strategies: Instead of picking individual items, the robot focuses on handling bowls to minimize errors.</li>
+        </ul>
     </section>
+    <footer>
+        <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
