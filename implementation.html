@@ -124,25 +124,13 @@
             font-weight: bold;
         }
 
-        .pipeline-list {
-            list-style: none;
-            counter-reset: pipeline-counter;
-            margin: 1.5rem 0;
-        }
-
-        .pipeline-list li {
-            margin: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-            counter-increment: pipeline-counter;
-        }
-
-        .pipeline-list li:before {
-            content: counter(pipeline-counter) ".";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        .pipeline-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            overflow: hidden;
         }
 
         footer {
@@ -183,6 +171,40 @@
     </header>
 
     <section class="container">
+        <div class="pipeline-container">
+            <h2 class="subsection-title">System Pipeline</h2>
+            <p class="implementation-text">The core process flow of Dish-n-Dash:</p>
+            <div class="mermaid">
+                %%{init: {
+                  'theme': 'base',
+                  'themeVariables': {
+                    'primaryColor': '#3b82f6',
+                    'primaryTextColor': '#ffffff',
+                    'primaryBorderColor': '#2563eb',
+                    'lineColor': '#3b82f6',
+                    'secondaryColor': '#dbeafe',
+                    'tertiaryColor': '#f3f4f6'
+                  }
+                }}%%
+                flowchart LR
+                    A[Run Image Classifier]-->B[Compute Transformations]-->C[Pick Up Bowl]-->D[Sort Contents]
+                    
+                    A1[Uses DETR model & ResNet-50<br>Locates object centroids] -.-> A
+                    B1[Transform coordinates<br>Generate optimal path] -.-> B
+                    C1[Navigate using IK<br>Grasp and lift bowl] -.-> C
+                    D1[Fruit → Compost<br>Utensils → Recycling] -.-> D
+
+                    style A fill:#3b82f6,stroke:#2563eb,color:#fff
+                    style B fill:#3b82f6,stroke:#2563eb,color:#fff
+                    style C fill:#3b82f6,stroke:#2563eb,color:#fff
+                    style D fill:#3b82f6,stroke:#2563eb,color:#fff
+                    style A1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+                    style B1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+                    style C1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+                    style D1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+            </div>
+        </div>
+
         <div class="implementation-card">
             <h2 class="subsection-title">Hardware</h2>
             <p class="implementation-text">We used the following hardware components:</p>
@@ -200,28 +222,6 @@
                 <li><strong>Object Detection:</strong> We used DETR (a transformer-based detection model) with a ResNet-50 backbone to classify objects and identify their centroids.</li>
                 <li><strong>Depth Processing:</strong> Depth images from the RealSense Camera were used to convert 2D pixel coordinates into 3D points in the robot's frame.</li>
                 <li><strong>Trajectory Planning:</strong> The robot's motion was planned using inverse kinematics to pick up objects and sort them accurately.</li>
-            </ul>
-        </div>
-
-        <div class="implementation-card">
-            <h2 class="subsection-title">Pipeline Overview</h2>
-            <p class="implementation-text">Here's an overview of the Dish-n-Dash process:</p>
-            <ol class="pipeline-list">
-                <li>Capture an image of the waste item using the Intel RealSense Camera.</li>
-                <li>Process the image through the object detection model to identify the item and its centroid.</li>
-                <li>Convert the 2D centroid into a 3D goal point using depth data.</li>
-                <li>Plan a trajectory for the robot to pick up the item using inverse kinematics.</li>
-                <li>Sort the item into the correct bin based on its classification.</li>
-            </ol>
-        </div>
-
-        <div class="implementation-card">
-            <h2 class="subsection-title">Challenges</h2>
-            <p class="implementation-text">Some key challenges we faced during implementation included:</p>
-            <ul class="component-list">
-                <li>Calibrating the robot's motion to ensure precise sorting.</li>
-                <li>Resolving classification errors for certain objects like bananas in unusual orientations.</li>
-                <li>Dealing with hardware limitations such as short cable lengths causing collisions.</li>
             </ul>
         </div>
     </section>
