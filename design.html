@@ -3,50 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conclusion</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dish-n-Dash - Design</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .nav {
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-tabs a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs a:hover, .nav-tabs a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 8rem 0 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .design-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .design-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                display: none;
+            }
+            .header-section {
+                padding: 6rem 1rem 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="design.html">Design</a></li>
-            <li><a href="implementation.html">Implementation</a></li>
-            <li><a href="results.html">Results</a></li>
-            <li><a href="https://github.com/sakakabota/DishnDash" target="_blank">GitHub</a></li>
-        </ul>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: bold;">Dish-n-Dash</a>
+            <div class="nav-tabs">
+                <a href="index.html">Home</a>
+                <a href="design.html" class="active">Design</a>
+                <a href="implementation.html">Implementation</a>
+                <a href="results.html">Results</a>
+                <a href="conclusion.html">Conclusion</a>
+                <a href="materials.html">Materials</a>
+            </div>
+        </div>
     </nav>
-    <header>
-        <h1>Conclusion</h1>
-        <p>Reflecting on the project’s challenges, successes, and potential improvements.</p>
+
+    <header class="header-section">
+        <h1>Design</h1>
+        <p>Our approach to creating an automated waste sorting system</p>
     </header>
-    <section>
-        <h2>Discussion</h2>
-        <p>The Dish-n-Dash project achieved its primary goal of automating waste sorting in school cafeterias. It demonstrated significant potential for real-world applications in waste management and sustainability. Despite the challenges faced during implementation, the results were promising and proved the concept’s feasibility.</p>
 
-        <h2>Challenges</h2>
-        <ul>
-            <li>Calibrating the robot’s motion to ensure precise and reliable sorting was time-consuming.</li>
-            <li>Classification errors occurred with items like bananas in unusual orientations.</li>
-            <li>Hardware limitations, such as short cable lengths, led to occasional collisions between the camera and gripper.</li>
-            <li>Handling mixed items in bowls required simplification of grasping strategies.</li>
-        </ul>
+    <div class="container">
+        <div class="design-card">
+            <h2 class="subsection-title">System Architecture</h2>
+            <p class="design-text">
+                The Dish-n-Dash system was designed with modularity and efficiency in mind. Our architecture consists of three main components: perception, planning, and execution.
+            </p>
+        </div>
 
-        <h2>Future Revisions</h2>
-        <p>Given more time and resources, we propose the following improvements to enhance Dish-n-Dash:</p>
-        <ul>
-            <li>Incorporating advanced grasp generation techniques, such as <strong>Grasp Anything</strong>, to better handle individual items in mixed bowls.</li>
-            <li>Expanding the classification model to include more waste categories for better sorting accuracy.</li>
-            <li>Implementing retry loops for error handling, ensuring that items are picked up and sorted correctly every time.</li>
-            <li>Upgrading hardware components to reduce latency and improve reliability in robotic movements.</li>
-        </ul>
+        <div class="design-card">
+            <h2 class="subsection-title">Perception System</h2>
+            <p class="design-text">
+                We utilize an Intel RealSense camera for both RGB and depth perception, allowing accurate object detection and localization. The perception system processes this data to identify waste items and determine their position in 3D space.
+            </p>
+        </div>
 
-        <h2>Final Thoughts</h2>
-        <p>The Dish-n-Dash project demonstrated how robotics and computer vision can address real-world challenges in waste management. With further refinement, the system has the potential to make a significant impact in educational and public spaces, promoting sustainability and reducing waste contamination. We look forward to seeing how this concept evolves in the future!</p>
-    </section>
+        <div class="design-card">
+            <h2 class="subsection-title">Motion Planning</h2>
+            <p class="design-text">
+                The Sawyer robot's motion planning system uses inverse kinematics to generate smooth, efficient trajectories for picking and placing items. Safety constraints and collision avoidance are built into the planning pipeline.
+            </p>
+        </div>
+    </div>
+
     <footer>
         <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
     </footer>
