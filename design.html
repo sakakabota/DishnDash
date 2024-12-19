@@ -3,45 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design</title>
+    <title>Conclusion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="design.html">Design</a></li>
+            <li><a href="implementation.html">Implementation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="https://github.com/sakakabota/DishnDash" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
     <header>
-        <h1>Design</h1>
-        <p>An in-depth look at the design choices and criteria for Dish-n-Dash.</p>
+        <h1>Conclusion</h1>
+        <p>Reflecting on the project’s challenges, successes, and potential improvements.</p>
     </header>
     <section>
-        <h2>Design Criteria</h2>
-        <p>The primary design goal was to create a system capable of accurately sorting waste items with minimal human intervention. The following criteria were considered:</p>
+        <h2>Discussion</h2>
+        <p>The Dish-n-Dash project achieved its primary goal of automating waste sorting in school cafeterias. It demonstrated significant potential for real-world applications in waste management and sustainability. Despite the challenges faced during implementation, the results were promising and proved the concept’s feasibility.</p>
+
+        <h2>Challenges</h2>
         <ul>
-            <li>High accuracy in classifying waste categories (e.g., compost, recycling).</li>
-            <li>Seamless integration with existing cafeteria setups.</li>
-            <li>Durability and robustness to handle real-world use cases.</li>
-            <li>Cost-effectiveness for deployment in schools.</li>
+            <li>Calibrating the robot’s motion to ensure precise and reliable sorting was time-consuming.</li>
+            <li>Classification errors occurred with items like bananas in unusual orientations.</li>
+            <li>Hardware limitations, such as short cable lengths, led to occasional collisions between the camera and gripper.</li>
+            <li>Handling mixed items in bowls required simplification of grasping strategies.</li>
         </ul>
 
-        <h2>Design Overview</h2>
-        <p>Our system consists of two main components:</p>
+        <h2>Future Revisions</h2>
+        <p>Given more time and resources, we propose the following improvements to enhance Dish-n-Dash:</p>
         <ul>
-            <li><strong>Object Detection and Classification:</strong> Using a transformer-based object detection model (DETR with ResNet-50 backbone), the system identifies items such as bowls, fruits, and utensils with high precision.</li>
-            <li><strong>Robotic Motion Planning:</strong> A robotic arm with inverse kinematics capabilities executes smooth trajectories to pick and sort items.</li>
+            <li>Incorporating advanced grasp generation techniques, such as <strong>Grasp Anything</strong>, to better handle individual items in mixed bowls.</li>
+            <li>Expanding the classification model to include more waste categories for better sorting accuracy.</li>
+            <li>Implementing retry loops for error handling, ensuring that items are picked up and sorted correctly every time.</li>
+            <li>Upgrading hardware components to reduce latency and improve reliability in robotic movements.</li>
         </ul>
 
-        <h3>Key Design Choices</h3>
-        <p>We made several important design decisions to meet our criteria:</p>
-        <ul>
-            <li>Using a depth-sensing camera to enable 3D localization of objects.</li>
-            <li>Employing robust materials for the robotic arm to handle varying weights of items.</li>
-            <li>Optimizing the software pipeline to reduce latency in object detection and motion execution.</li>
-        </ul>
-
-        <h3>Challenges and Trade-offs</h3>
-        <p>While formulating the design, we faced some trade-offs:</p>
-        <ul>
-            <li>Balancing cost and accuracy: Advanced components like a depth camera and transformer model increased costs.</li>
-            <li>Simplifying grasp strategies: Instead of picking individual items, the robot focuses on handling bowls to minimize errors.</li>
-        </ul>
+        <h2>Final Thoughts</h2>
+        <p>The Dish-n-Dash project demonstrated how robotics and computer vision can address real-world challenges in waste management. With further refinement, the system has the potential to make a significant impact in educational and public spaces, promoting sustainability and reducing waste contamination. We look forward to seeing how this concept evolves in the future!</p>
     </section>
     <footer>
         <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
