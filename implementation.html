@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish-n-Dash - Implementation Details</title>
+    <title>Dish-n-Dash - Implementation</title>
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -16,7 +16,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -26,11 +26,14 @@
 
         .nav {
             background: white;
-            padding: 1rem 2rem;
+            padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
-        .nav-links {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -38,17 +41,42 @@
             align-items: center;
         }
 
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 2rem;
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
         }
 
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+        .nav-tabs a {
+            color: var(--text-color);
             text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs a:hover, .nav-tabs a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 8rem 0 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
         }
 
         .container {
@@ -57,22 +85,18 @@
             padding: 0 2rem;
         }
 
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
         .implementation-card {
             background: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin: 2rem 0;
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .implementation-text {
@@ -121,23 +145,6 @@
             font-weight: bold;
         }
 
-        .subsection-title {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
-        }
-
-        .header-section {
-            text-align: center;
-            padding: 3rem 0 1rem;
-        }
-
-        .header-section p {
-            color: var(--text-color);
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-
         footer {
             text-align: center;
             padding: 2rem;
@@ -146,79 +153,76 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+            .nav-tabs {
+                display: none;
             }
-            .nav-links a {
-                margin-left: 0;
+            .header-section {
+                padding: 6rem 1rem 2rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
-        <div class="nav-links">
-            <a href="index.html" class="logo">Dish-n-Dash</a>
-            <div>
-                <a href="index.html#about">About</a>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#team">Team</a>
+        <div class="nav-container">
+            <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: bold;">Dish-n-Dash</a>
+            <div class="nav-tabs">
+                <a href="index.html">Home</a>
                 <a href="design.html">Design</a>
-                <a href="implementation.html">Implementation</a>
-                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
+                <a href="implementation.html" class="active">Implementation</a>
+                <a href="results.html">Results</a>
+                <a href="conclusion.html">Conclusion</a>
+                <a href="materials.html">Materials</a>
             </div>
         </div>
     </nav>
 
-    <div class="header-section">
-        <h1 class="section-title">Implementation</h1>
+    <header class="header-section">
+        <h1>Implementation</h1>
         <p>A step-by-step breakdown of how Dish-n-Dash works.</p>
-    </div>
+    </header>
 
-    <section class="section">
-        <div class="container">
-            <div class="implementation-card">
-                <h2 class="subsection-title">Hardware</h2>
-                <p class="implementation-text">We used the following hardware components:</p>
-                <ul class="component-list">
-                    <li><strong>Sawyer Robot Arm:</strong> Executes smooth and precise motions for waste sorting.</li>
-                    <li><strong>Intel RealSense Camera:</strong> Provides depth and color images for object detection.</li>
-                    <li><strong>Custom Sorting Bins:</strong> Designed to align with the robot's motion planning system.</li>
-                </ul>
-            </div>
+    <section class="container">
+        <div class="implementation-card">
+            <h2 class="subsection-title">Hardware</h2>
+            <p class="implementation-text">We used the following hardware components:</p>
+            <ul class="component-list">
+                <li><strong>Sawyer Robot Arm:</strong> Executes smooth and precise motions for waste sorting.</li>
+                <li><strong>Intel RealSense Camera:</strong> Provides depth and color images for object detection.</li>
+                <li><strong>Custom Sorting Bins:</strong> Designed to align with the robot's motion planning system.</li>
+            </ul>
+        </div>
 
-            <div class="implementation-card">
-                <h2 class="subsection-title">Software</h2>
-                <p class="implementation-text">The software pipeline integrates the following systems:</p>
-                <ul class="component-list">
-                    <li><strong>Object Detection:</strong> We used DETR (a transformer-based detection model) with a ResNet-50 backbone to classify objects and identify their centroids.</li>
-                    <li><strong>Depth Processing:</strong> Depth images from the RealSense Camera were used to convert 2D pixel coordinates into 3D points in the robot's frame.</li>
-                    <li><strong>Trajectory Planning:</strong> The robot's motion was planned using inverse kinematics to pick up objects and sort them accurately.</li>
-                </ul>
-            </div>
+        <div class="implementation-card">
+            <h2 class="subsection-title">Software</h2>
+            <p class="implementation-text">The software pipeline integrates the following systems:</p>
+            <ul class="component-list">
+                <li><strong>Object Detection:</strong> We used DETR (a transformer-based detection model) with a ResNet-50 backbone to classify objects and identify their centroids.</li>
+                <li><strong>Depth Processing:</strong> Depth images from the RealSense Camera were used to convert 2D pixel coordinates into 3D points in the robot's frame.</li>
+                <li><strong>Trajectory Planning:</strong> The robot's motion was planned using inverse kinematics to pick up objects and sort them accurately.</li>
+            </ul>
+        </div>
 
-            <div class="implementation-card">
-                <h2 class="subsection-title">Pipeline Overview</h2>
-                <p class="implementation-text">Here's an overview of the Dish-n-Dash process:</p>
-                <ol class="pipeline-list">
-                    <li>Capture an image of the waste item using the Intel RealSense Camera.</li>
-                    <li>Process the image through the object detection model to identify the item and its centroid.</li>
-                    <li>Convert the 2D centroid into a 3D goal point using depth data.</li>
-                    <li>Plan a trajectory for the robot to pick up the item using inverse kinematics.</li>
-                    <li>Sort the item into the correct bin based on its classification.</li>
-                </ol>
-            </div>
+        <div class="implementation-card">
+            <h2 class="subsection-title">Pipeline Overview</h2>
+            <p class="implementation-text">Here's an overview of the Dish-n-Dash process:</p>
+            <ol class="pipeline-list">
+                <li>Capture an image of the waste item using the Intel RealSense Camera.</li>
+                <li>Process the image through the object detection model to identify the item and its centroid.</li>
+                <li>Convert the 2D centroid into a 3D goal point using depth data.</li>
+                <li>Plan a trajectory for the robot to pick up the item using inverse kinematics.</li>
+                <li>Sort the item into the correct bin based on its classification.</li>
+            </ol>
+        </div>
 
-            <div class="implementation-card">
-                <h2 class="subsection-title">Challenges</h2>
-                <p class="implementation-text">Some key challenges we faced during implementation included:</p>
-                <ul class="component-list">
-                    <li>Calibrating the robot's motion to ensure precise sorting.</li>
-                    <li>Resolving classification errors for certain objects like bananas in unusual orientations.</li>
-                    <li>Dealing with hardware limitations such as short cable lengths causing collisions.</li>
-                </ul>
-            </div>
+        <div class="implementation-card">
+            <h2 class="subsection-title">Challenges</h2>
+            <p class="implementation-text">Some key challenges we faced during implementation included:</p>
+            <ul class="component-list">
+                <li>Calibrating the robot's motion to ensure precise sorting.</li>
+                <li>Resolving classification errors for certain objects like bananas in unusual orientations.</li>
+                <li>Dealing with hardware limitations such as short cable lengths causing collisions.</li>
+            </ul>
         </div>
     </section>
 
