@@ -3,27 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish-n-Dash</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dish-n-Dash - Home</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(59, 130, 246, 0.1), rgba(219, 234, 254, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links a {
+                margin-left: 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-image {
+                max-width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="design.html">Design</a></li>
-            <li><a href="implementation.html">Implementation</a></li>
-            <li><a href="https://github.com/sakakabota/DishnDash" target="_blank">GitHub</a></li>
-        </ul>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="index.html" class="logo">Dish-n-Dash</a>
+            <div>
+                <a href="index.html#about">About</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#team">Team</a>
+                <a href="design.html">Design</a>
+                <a href="implementation.html">Implementation</a>
+                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
+            </div>
+        </div>
     </nav>
-    <header class="hero">
-        <h1>Dish-n-Dash</h1>
-        <p>Revolutionizing waste sorting in school cafeterias through robotics.</p>
-    </header>
-    <section>
-        <img src="assets/sawyer.png" alt="Sawyer Robot" class="hero-image">
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dish-n-Dash</h1>
+            <p>Revolutionizing waste sorting in school cafeterias through robotics.</p>
+            <div class="image-container">
+                <img src="assets/sawyer.png" alt="Sawyer Robot" class="hero-image">
+            </div>
+        </div>
     </section>
 </body>
 </html>
