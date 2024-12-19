@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish-n-Dash - Conclusion</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .conclusion-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .challenges-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .challenges-list li {
+            position: relative;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .challenges-list li::before {
+            content: "!";
+            color: #e11d48;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .improvements-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .improvements-list li {
+            position: relative;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .improvements-list li::before {
+            content: "→";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .conclusion-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 3rem 1rem 1.5rem;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+            }
+
+            .conclusion-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="design.html">Design</a></li>
+            <li><a href="implementation.html">Implementation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="https://github.com/sakakabota/DishnDash" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-section">
+        <h1>Conclusion</h1>
+        <p>Reflecting on the project's challenges, successes, and potential improvements.</p>
+    </header>
+
+    <div class="container">
+        <div class="conclusion-card">
+            <h2 class="subsection-title">Discussion</h2>
+            <p class="conclusion-text">
+                The Dish-n-Dash project achieved its primary goal of automating waste sorting in school cafeterias. It demonstrated significant potential for real-world applications in waste management and sustainability. Despite the challenges faced during implementation, the results were promising and proved the concept's feasibility.
+            </p>
+        </div>
+
+        <div class="conclusion-card">
+            <h2 class="subsection-title">Challenges</h2>
+            <ul class="challenges-list">
+                <li>Calibrating the robot's motion to ensure precise and reliable sorting was time-consuming.</li>
+                <li>Classification errors occurred with items like bananas in unusual orientations.</li>
+                <li>Hardware limitations, such as short cable lengths, led to occasional collisions between the camera and gripper.</li>
+                <li>Handling mixed items in bowls required simplification of grasping strategies.</li>
+            </ul>
+        </div>
+
+        <div class="conclusion-card">
+            <h2 class="subsection-title">Future Revisions</h2>
+            <p class="conclusion-text">Given more time and resources, we propose the following improvements to enhance Dish-n-Dash:</p>
+            <ul class="improvements-list">
+                <li>Incorporating advanced grasp generation techniques, such as <strong>Grasp Anything</strong>, to better handle individual items in mixed bowls.</li>
+                <li>Expanding the classification model to include more waste categories for better sorting accuracy.</li>
+                <li>Implementing retry loops for error handling, ensuring that items are picked up and sorted correctly every time.</li>
+                <li>Upgrading hardware components to reduce latency and improve reliability in robotic movements.</li>
+            </ul>
+        </div>
+
+        <div class="conclusion-card">
+            <h2 class="subsection-title">Final Thoughts</h2>
+            <p class="conclusion-text">
+                The Dish-n-Dash project demonstrated how robotics and computer vision can address real-world challenges in waste management. With further refinement, the system has the potential to make a significant impact in educational and public spaces, promoting sustainability and reducing waste contamination. We look forward to seeing how this concept evolves in the future!
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
