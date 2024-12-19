@@ -19,7 +19,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* Sleek Navigation */
         .nav {
             background: white;
             padding: 1.5rem;
@@ -51,12 +50,11 @@
             transition: all 0.3s ease;
         }
 
-        .nav-tabs a:hover {
+        .nav-tabs a:hover, .nav-tabs a.active {
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             padding-top: 80px;
@@ -93,7 +91,6 @@
             box-shadow: var(--shadow);
         }
 
-        /* Why Section */
         .why-section {
             padding: 6rem 2rem;
             background: white;
@@ -141,12 +138,11 @@
         <div class="nav-container">
             <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: bold;">Dish-n-Dash</a>
             <div class="nav-tabs">
-                <a href="introduction.html">Introduction</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="design.html">Design</a>
                 <a href="implementation.html">Implementation</a>
                 <a href="results.html">Results</a>
                 <a href="conclusion.html">Conclusion</a>
-                <a href="team.html">Team</a>
                 <a href="materials.html">Materials</a>
             </div>
         </div>
