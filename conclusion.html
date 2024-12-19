@@ -4,57 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dish-n-Dash - Conclusion</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        .conclusion-card {
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .nav {
             background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
-        .challenges-list {
-            list-style: none;
-            margin: 1.5rem 0;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .challenges-list li {
-            position: relative;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
         }
 
-        .challenges-list li::before {
-            content: "!";
-            color: #e11d48;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        .nav-tabs a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        .improvements-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .improvements-list li {
-            position: relative;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .improvements-list li::before {
-            content: "→";
+        .nav-tabs a:hover, .nav-tabs a.active {
             color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .header-section {
             text-align: center;
-            padding: 4rem 0 2rem;
+            padding: 8rem 0 2rem;
             background: var(--primary-color);
             color: white;
             margin-bottom: 3rem;
@@ -71,51 +79,112 @@
             opacity: 0.9;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .conclusion-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         .conclusion-text {
+            margin: 1.5rem 0;
             line-height: 1.8;
             font-size: 1.1rem;
+        }
+
+        .challenges-list {
+            list-style: none;
             margin: 1.5rem 0;
         }
 
+        .challenges-list li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .challenges-list li:before {
+            content: "!";
+            color: #e11d48;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .improvements-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .improvements-list li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .improvements-list li:before {
+            content: "→";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            margin-top: 4rem;
+        }
+
         @media (max-width: 768px) {
+            .nav-tabs {
+                display: none;
+            }
             .header-section {
-                padding: 3rem 1rem 1.5rem;
-            }
-
-            .header-section h1 {
-                font-size: 2rem;
-            }
-
-            .conclusion-card {
-                padding: 1.5rem;
+                padding: 6rem 1rem 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="design.html">Design</a></li>
-            <li><a href="implementation.html">Implementation</a></li>
-            <li><a href="results.html">Results</a></li>
-            <li><a href="https://github.com/sakakabota/DishnDash" target="_blank">GitHub</a></li>
-        </ul>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: bold;">Dish-n-Dash</a>
+            <div class="nav-tabs">
+                <a href="index.html">Home</a>
+                <a href="design.html">Design</a>
+                <a href="implementation.html">Implementation</a>
+                <a href="results.html">Results</a>
+                <a href="conclusion.html" class="active">Conclusion</a>
+                <a href="materials.html">Materials</a>
+            </div>
+        </div>
     </nav>
 
     <header class="header-section">
         <h1>Conclusion</h1>
-        <p>Reflecting on the project's challenges, successes, and potential improvements.</p>
+        <p>Reflecting on the project's challenges, successes, and potential improvements</p>
     </header>
 
-    <div class="container">
+    <section class="container">
         <div class="conclusion-card">
             <h2 class="subsection-title">Discussion</h2>
             <p class="conclusion-text">
-                The Dish-n-Dash project achieved its primary goal of automating waste sorting in school cafeterias. It demonstrated significant potential for real-world applications in waste management and sustainability. Despite the challenges faced during implementation, the results were promising and proved the concept's feasibility.
+                The Dish-n-Dash project successfully demonstrated the potential of automated waste sorting in school cafeterias. Through our implementation, we showed that robotics and computer vision can effectively address real-world sustainability challenges. The system's performance in testing validated our initial concept and highlighted areas for future development.
             </p>
         </div>
 
@@ -146,7 +215,7 @@
                 The Dish-n-Dash project demonstrated how robotics and computer vision can address real-world challenges in waste management. With further refinement, the system has the potential to make a significant impact in educational and public spaces, promoting sustainability and reducing waste contamination. We look forward to seeing how this concept evolves in the future!
             </p>
         </div>
-    </div>
+    </section>
 
     <footer>
         <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
