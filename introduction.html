@@ -3,24 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduction</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dish-n-Dash - Introduction</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .intro-text {
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .intro-header {
+            text-align: center;
+            padding: 3rem 0 1rem;
+        }
+
+        .intro-header p {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links a {
+                margin-left: 0;
+            }
+            .intro-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Introduction</h1>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="index.html" class="logo">Dish-n-Dash</a>
+            <div>
+                <a href="index.html#about">About</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#team">Team</a>
+                <a href="design.html">Design</a>
+                <a href="implementation.html">Implementation</a>
+                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="intro-header">
+        <h1 class="section-title">Introduction</h1>
         <p>An overview of the Dish-n-Dash project and its goals.</p>
-    </header>
-    <section>
-        <h2>Project Overview</h2>
-        <p>Dish-n-Dash is a robotic system designed to automate waste sorting in school cafeterias. This project aims to reduce waste contamination, lower operational costs, and promote eco-friendly habits among students.</p>
+    </div>
 
-        <h3>Why This Project?</h3>
-        <p>In school cafeterias, waste sorting is often done improperly, leading to recycling contamination and inefficiency. Dish-n-Dash addresses this issue using robotics and object detection to ensure accurate sorting and optimized waste management.</p>
+    <section class="section">
+        <div class="container">
+            <div class="intro-card">
+                <h2 class="subsection-title">Project Overview</h2>
+                <p class="intro-text">
+                    Dish-n-Dash is a robotic system designed to automate waste sorting in school cafeterias. This project aims to reduce waste contamination, lower operational costs, and promote eco-friendly habits among students.
+                </p>
+            </div>
 
-        <h3>Real-World Applications</h3>
-        <p>The principles and technology behind Dish-n-Dash have broader applications in waste management for public spaces, offices, and other institutions. The system also provides a platform for educational outreach, demonstrating how technology can address environmental challenges.</p>
+            <div class="intro-card">
+                <h2 class="subsection-title">Why This Project?</h2>
+                <p class="intro-text">
+                    In school cafeterias, waste sorting is often done improperly, leading to recycling contamination and inefficiency. Dish-n-Dash addresses this issue using robotics and object detection to ensure accurate sorting and optimized waste management.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <h2 class="subsection-title">Real-World Applications</h2>
+                <p class="intro-text">
+                    The principles and technology behind Dish-n-Dash have broader applications in waste management for public spaces, offices, and other institutions. The system also provides a platform for educational outreach, demonstrating how technology can address environmental challenges.
+                </p>
+            </div>
+        </div>
     </section>
+
     <footer>
         <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
     </footer>
