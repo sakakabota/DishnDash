@@ -3,242 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dish-n-Dash - Robotic Waste Management Solution</title>
-    <style>
-        :root {
-            --primary-color: #3b82f6;
-            --secondary-color: #dbeafe;
-            --text-color: #1f2937;
-            --light-gray: #f3f4f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .hero {
-            background-color: var(--secondary-color);
-            padding: 2rem;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .hero-text {
-            flex: 1;
-            padding: 2rem;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .sawyer-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-links {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .team-section {
-            background-color: var(--light-gray);
-        }
-
-        .cta {
-            background-color: var(--secondary-color);
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #2563eb;
-        }
-
-        @media (max-width: 768px) {
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-image {
-                order: -1;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                margin-left: 0;
-            }
-        }
-    </style>
+    <title>Dish-n-Dash</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-links">
-            <a href="index.html" class="logo">Dish-n-Dash</a>
-            <div>
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#team">Team</a>
-                <a href="design.html">Design</a>
-                <a href="implementation.html">Implementation</a>
-                <a href="https://github.com/sakakabota/DishnDash">GitHub</a>
-            </div>
-        </div>
+    <header>
+        <h1>Dish-n-Dash Project</h1>
+        <p>An innovative solution for waste sorting in school cafeterias.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="design.html">Design</a></li>
+            <li><a href="implementation.html">Implementation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="materials.html">Additional Materials</a></li>
+        </ul>
     </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Dish-n-Dash</h1>
-                <p>The Ultimate Robotic Solution for Smart Waste Management in Schools</p>
-            </div>
-            <div class="hero-image">
-                <img src="assets/sawyer.png" alt="Sawyer Robot" class="sawyer-img">
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">Our Mission</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-                In school lunch settings, students often struggle to correctly sort their dishes and compostable materials. 
-                Our automated solution uses advanced robotics and computer vision to accurately sort waste, 
-                reducing contamination and improving recycling efficiency.
-            </p>
-        </div>
-    </section>
-
-    <section class="section" id="features">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <img src="/api/placeholder/64/64" alt="Vision System">
-                    <h3>Intelligent Vision</h3>
-                    <p>Advanced computer vision system using DETR with ResNet-50 backbone for accurate object detection</p>
-                </div>
-                <div class="feature-card">
-                    <img src="/api/placeholder/64/64" alt="Robotics">
-                    <h3>Robotic Control</h3>
-                    <p>Precise robotic manipulation using inverse kinematics for reliable waste sorting</p>
-                </div>
-                <div class="feature-card">
-                    <img src="/api/placeholder/64/64" alt="Eco-friendly">
-                    <h3>Eco-Friendly</h3>
-                    <p>Optimizes recycling and composting while minimizing contamination</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section team-section" id="team">
-        <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <div style="text-align: center;">
-                <p>UC Berkeley EECS Project - Team 13</p>
-                <p>Pranitha Rao • Ria Doshi • Stephanie Akakabota • Abby O'Neill</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2 class="section-title">Learn More About Our Project</h2>
-            <a href="design.html" class="button">View Design Details</a>
-        </div>
-    </section>
+    <footer>
+        <p>© 2024 Dish-n-Dash Team. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
