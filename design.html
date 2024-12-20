@@ -141,21 +141,27 @@
         <div class="design-card">
             <h2 class="subsection-title">System Architecture</h2>
             <p class="design-text">
-                The Dish-n-Dash system was designed with modularity and efficiency in mind. Our architecture consists of three main components: perception, planning, and execution.
+                The Dish-n-Dash system was designed with modularity and efficiency in mind. Our architecture consists of three main components: perception, planning, and execution. 
+                <br><br>
+                Perception allows the system to analyze its environment and detect objects, while planning ensures safe and precise motions to interact with the identified objects. Finally, the execution component handles the physical interaction, seamlessly integrating sensor data and motion commands. This modular structure not only ensures efficiency but also allows for easy integration of upgrades and new features.
             </p>
         </div>
 
         <div class="design-card">
             <h2 class="subsection-title">Perception System</h2>
             <p class="design-text">
-                We utilize an Intel RealSense camera for both RGB and depth perception, allowing accurate object detection and localization. The perception system processes this data to identify waste items and determine their position in 3D space.
+                We utilize an Intel RealSense camera for both RGB and depth perception, allowing accurate object detection and localization. The perception system processes this data to identify waste items and determine their position in 3D space. 
+                <br><br>
+                By leveraging ROS topics like <code>/goal_point</code> for object coordinates and <code>/obj_type</code> for classification, the robot can dynamically adjust its actions based on the type and location of objects. Advanced transformations ensure the system calculates precise grasp points for seamless object manipulation, enhancing reliability and adaptability.
             </p>
         </div>
 
         <div class="design-card">
             <h2 class="subsection-title">Motion Planning</h2>
             <p class="design-text">
-                The Sawyer robot's motion planning system uses inverse kinematics to generate smooth, efficient trajectories for picking and placing items. Safety constraints and collision avoidance are built into the planning pipeline.
+                The Sawyer robot's motion planning system uses inverse kinematics to generate smooth, efficient trajectories for picking and placing items. Safety constraints and collision avoidance are built into the planning pipeline. 
+                <br><br>
+                By utilizing the <code>MoveIt!</code> framework and ROS's inverse kinematics services, the system ensures that every motion respects workspace boundaries and avoids obstacles. Trajectory scaling and adaptive planning methods provide smooth and precise movements, making the system highly effective in real-world scenarios. This ensures reliability even in dynamic environments.
             </p>
         </div>
     </div>
