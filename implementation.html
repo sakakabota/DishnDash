@@ -10,8 +10,12 @@
             startOnLoad: true,
             theme: 'default',
             flowchart: {
-                useMaxWidth: false,
-                htmlLabels: true
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                rankSpacing: 80,
+                nodeSpacing: 80,
+                padding: 40
             }
         });
     </script>
@@ -109,6 +113,17 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .mermaid {
+            width: 100%;
+            display: flex;
+            justify-content: center;
             margin: 2rem 0;
         }
 
