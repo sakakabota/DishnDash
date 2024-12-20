@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dish-n-Dash - Implementation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true
+            }
+        });
+    </script>
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -93,6 +104,14 @@
             margin: 2rem 0;
         }
 
+        .pipeline-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
         .subsection-title {
             color: var(--primary-color);
             font-size: 1.5rem;
@@ -122,15 +141,6 @@
             position: absolute;
             left: 0;
             font-weight: bold;
-        }
-
-        .pipeline-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-            overflow: hidden;
         }
 
         footer {
@@ -175,33 +185,19 @@
             <h2 class="subsection-title">System Pipeline</h2>
             <p class="implementation-text">The core process flow of Dish-n-Dash:</p>
             <div class="mermaid">
-                %%{init: {
-                  'theme': 'base',
-                  'themeVariables': {
-                    'primaryColor': '#3b82f6',
-                    'primaryTextColor': '#ffffff',
-                    'primaryBorderColor': '#2563eb',
-                    'lineColor': '#3b82f6',
-                    'secondaryColor': '#dbeafe',
-                    'tertiaryColor': '#f3f4f6'
-                  }
-                }}%%
-                flowchart LR
-                    A[Run Image Classifier]-->B[Compute Transformations]-->C[Pick Up Bowl]-->D[Sort Contents]
-                    
-                    A1[Uses DETR model & ResNet-50<br>Locates object centroids] -.-> A
-                    B1[Transform coordinates<br>Generate optimal path] -.-> B
-                    C1[Navigate using IK<br>Grasp and lift bowl] -.-> C
-                    D1[Fruit → Compost<br>Utensils → Recycling] -.-> D
+flowchart LR
+    A[Run Image Classifier]-->B[Compute Transformations]-->C[Pick Up Bowl]-->D[Sort Contents]
+    
+    A1[Uses DETR model & ResNet-50<br>Locates object centroids] -.-> A
+    B1[Transform coordinates<br>Generate optimal path] -.-> B
+    C1[Navigate using IK<br>Grasp and lift bowl] -.-> C
+    D1[Fruit → Compost<br>Utensils → Recycling] -.-> D
 
-                    style A fill:#3b82f6,stroke:#2563eb,color:#fff
-                    style B fill:#3b82f6,stroke:#2563eb,color:#fff
-                    style C fill:#3b82f6,stroke:#2563eb,color:#fff
-                    style D fill:#3b82f6,stroke:#2563eb,color:#fff
-                    style A1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
-                    style B1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
-                    style C1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
-                    style D1 fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+    classDef primary fill:#3b82f6,stroke:#2563eb,color:#fff
+    classDef secondary fill:#dbeafe,stroke:#3b82f6,color:#1f2937
+    
+    class A,B,C,D primary
+    class A1,B1,C1,D1 secondary
             </div>
         </div>
 
