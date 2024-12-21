@@ -199,8 +199,10 @@
                 Dish-n-Dash successfully demonstrated reliable waste sorting capabilities across various test scenarios. Our system showed consistent performance in identifying and sorting common cafeteria items.
             </p>
             <ul class="component-list">
-                <li><strong>Object Detection Accuracy:</strong> 80% accuracy in identifying common cafeteria items</li>
-                <li><strong>Processing Speed:</strong> Average of 30 seconds per item from detection to sorting</li>
+                <li><strong>Object Detection Accuracy:</strong>First, object detection. Of the six objects that we tested on (apple, banana, orange, fork, spoon, bowl), we found that DETR was able to predict the location of the object 80% of the time (we tested 5 times per object, and received successful predictions 24/30 times). We found that certain orientations of the objects worked better than others, and tested from a variety of orientations. </li>
+                <li><strong>IK & Motion Planning:</strong> Next, the success of our IK and motion planning. As long as the centroid was predicted correctly from above, this component of our project worked 100% of the time, with any of the objects we chose.
+                </li>
+                <li><strong>Processing Speed:</strong>Lastly, we evaluated our model on speed. In total, our model takes about 1 min and 30 seconds to perform an entire rollout — from querying DETR for the bowl and objects, all the way to tipping object from the bowl into the appropriate container. This does include time spent making sure that each part of the trajectory was safe (we always looked at the visualizations on rviz before actually rolling out the actions). </li>
             </ul>
         </div>
 

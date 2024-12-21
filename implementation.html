@@ -128,6 +128,12 @@
             margin: 2rem 0;
         }
 
+        .implementation-card img {
+        width: 100%; 
+        max-width: 100%; 
+        height: auto; 
+}
+
         .subsection-title {
             color: var(--primary-color);
             font-size: 1.5rem;
@@ -141,22 +147,38 @@
         }
 
         .component-list {
-            list-style: none;
-            margin: 1.5rem 0;
+        list-style: none; 
+        margin: 1.5rem 0;
         }
 
         .component-list li {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-            position: relative;
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+        position: relative;
         }
 
         .component-list li:before {
-            content: "•";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        content: ""; 
+        }
+
+        .component-list ol {
+        list-style: none;
+        margin-left: 1.5rem;
+        counter-reset: list-counter;
+        }
+
+        .component-list ol li {
+        counter-increment: list-counter;
+        margin: 0.5rem 0;
+        position: relative;
+        }
+
+        .component-list ol li:before {
+        content: counter(list-counter) ".";
+        color: var(--primary-color);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
         }
 
         footer {
@@ -165,6 +187,23 @@
             background: var(--light-gray);
             margin-top: 4rem;
         }
+
+        code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: var(--light-gray);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.95em;
+        color: var(--text-color);
+        }
+
+        .small-image img {
+            width: 1px; 
+            height: auto; 
+            margin: 0.5rem 0; 
+        }
+
+
 
         @media (max-width: 768px) {
             .nav-tabs {
@@ -221,19 +260,50 @@ flowchart LR
             <h2 class="subsection-title">Hardware</h2>
             <p class="implementation-text">We used the following hardware components:</p>
             <ul class="component-list">
-                <li><strong>Sawyer Robot Arm:</strong> Executes smooth and precise motions for waste sorting.</li>
-                <li><strong>Intel RealSense Camera:</strong> Provides depth and color images for object detection.</li>
-                <li><strong>Custom Sorting Bins:</strong> Designed to align with the robot's motion planning system.</li>
+                <li><strong>Sawyer Robot Arm</strong> </li>
+                <li><strong>Intel RealSense Camera</strong> </li>
+                <li><strong>Custom Sorting Bins</strong></li>
+                <div class="small-img"><img src="assets/dish_compost.png"></div>
+                <li><strong>Gripper Modification</strong></li>
+                <div class="small-img"><img src="assets/holdingbowl.png"></div>
             </ul>
+        </div>
+
+        <div class="implementation-card">
+            <h2 class="subsection-title">Data Streams</h2>
+            <img src="assets/data_streams.jpg" alt="Dish-n-Dash Robot">
         </div>
 
         <div class="implementation-card">
             <h2 class="subsection-title">Software</h2>
             <p class="implementation-text">The software pipeline integrates the following systems:</p>
             <ul class="component-list">
-                <li><strong>Object Detection:</strong> We used DETR (a transformer-based detection model) with a ResNet-50 backbone to classify objects and identify their centroids.</li>
-                <li><strong>Depth Processing:</strong> Depth images from the RealSense Camera were used to convert 2D pixel coordinates into 3D points in the robot's frame.</li>
-                <li><strong>Trajectory Planning:</strong> The robot's motion was planned using inverse kinematics to pick up objects and sort them accurately.</li>
+                <li><strong>Object Detection:</strong>
+                    In order to make our pipeline as generalizable as possible, we wanted to use an off-the-shelf image classifier called Detection Transformer (DETR). This model is able to detect hundreds of objects, including various fruit items (apple, banana, orange) and dishware (spoons, forks, plates). 
+                    Our vision pipeline is the following:
+                    <br>
+                    <ol>
+                        <li> When we run our main script, we read the first image that the camera topic receives. We refer to our local machine as the client.</li>
+                        <li> We send the received image to a server in the data center. This is where the DETR model is being hosted, since we need a GPU in order to run inference. We use NGROK to facilitate this request</li>
+                        <li> DETR takes this image and searches for two items. First, it searches for the bowl. Second, it searches for any of the target objects. It chooses the object with the highest confidence. We return two items: (1) the centroid of the bowl and (2) the detected object inside the bowl</li>
+                        <li>Our client now knows where it should grasp the bowl and what type of object it needs to sort — in pixel space! We now need to convert this to the robot’s base frame</li>
+                    </ol>
+                <li><strong>Transformations:</strong> Next, we need to compute the transformation from the pixel point and to the robot gripper frame. 
+                    <ol>
+                        <li>We need to first calculate the transform between the pixel point and the camera frame. Using the camera intrinsic parameters, we are able to get the depth data and thus, convert the 2D pixel coordinates into 3D world point in camera frame. </li> 
+                        <li>Since we had set up the camera, we had to manually calculate the transformation between the camera frame and the robot base frame by measuring the x, y, and z offset. Since the camera was oriented to point downwards towards the table, we needed to account for this 90 degree rotation in our transformation as well. This transformation is passed into the software pipeline through this line of code: <code>rosrun tf static_transform_publisher x y z 0 1.5708 0 base camera_link 100</code></li>
+                        <li>Lastly, we need to transform between the robot base frame and the robot right gripper frame. This is done through the inverse kinematics pipeline.</li>
+                    </ol>
+                <li><strong>Trajectory Planning:</strong>
+                    Now that we have our grasping point in the robot’s gripper frame, we use inverse kinematics to perform a series of motions to get to the desired location. 
+                    <br>
+                    <ol>
+                        <li>First, we perform IK to move the robot from its initial position (which can be anywhere at the beginning) to the point transformed point that we’ve calculated using vision.</li>
+                        <li>Next, we use IK to move the robot back to the tuck position, so that it can perform the rest of the motion safely. </li>
+                        <li>Third, we move the point right above either the dishware or the compost bin, depending on the type of object that is detected.</li>
+                        <li>Lastly, and most importantly, we computed a rotation for joint four that would allow us to get the tipping motion, such that the object drops from the bowl into the correct bin. </li>
+                    </ol>
+                </li>
             </ul>
         </div>
     </section>
