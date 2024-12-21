@@ -25,6 +25,36 @@ body {
     z-index: 1000;
 }
 
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between grid items */
+    justify-items: center; /* Center items horizontally in grid */
+    align-items: center; /* Center items vertically in grid */
+    margin: 0 auto; /* Center the grid in its container */
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text inside the card */
+    padding: 20px; /* Add padding around content */
+    border: 1px solid #ddd; /* Optional border for better separation */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.team-image {
+    width: 70%; /* Retain your 70% width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image is fully visible */
+    border-radius: 10%; /* Optional: for slightly rounded corners */
+    margin-bottom: 15px; /* Space between image and text */
+}
+
 .navbar ul {
     list-style: none;
     margin: 0;

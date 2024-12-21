@@ -160,28 +160,6 @@
 
     <div class="container">
         <div class="design-card">
-            <h2 class="subsection-title">Overview</h2>
-            <h3 class="sub-subsection-title">System Architecture</h3>
-            <p class="design-text">
-                The Dish-n-Dash system was designed with modularity and efficiency in mind. Our architecture consists of three main components: perception, planning, and execution. 
-                <br><br>
-                Perception allows the system to analyze its environment and detect objects, while planning ensures safe and precise motions to interact with the identified objects. Finally, the execution component handles the physical interaction, seamlessly integrating sensor data and motion commands. This modular structure not only ensures efficiency but also allows for easy integration of upgrades and new features.
-            </p>
-            <h2 class="sub-subsection-title">Perception System</h2>
-            <p class="design-text">
-                We utilize an Intel RealSense camera for both RGB and depth perception, allowing accurate object detection and localization. The perception system processes this data to identify waste items and determine their position in 3D space. 
-                <br><br>
-                By leveraging ROS topics like <code>/goal_point</code> for object coordinates and <code>/obj_type</code> for classification, the robot can dynamically adjust its actions based on the type and location of objects. Advanced transformations ensure the system calculates precise grasp points for seamless object manipulation, enhancing reliability and adaptability.
-            </p>
-            <h2 class="sub-subsection-title">Motion Planning</h2>
-            <p class="design-text">
-                The Sawyer robot's motion planning system uses inverse kinematics to generate smooth, efficient trajectories for picking and placing items. Safety constraints and collision avoidance are built into the planning pipeline. 
-                <br><br>
-                By utilizing the <code>MoveIt!</code> framework and ROS's inverse kinematics services, the system ensures that every motion respects workspace boundaries and avoids obstacles. Trajectory scaling and adaptive planning methods provide smooth and precise movements, making the system highly effective in real-world scenarios. This ensures reliability even in dynamic environments.
-            </p>
-        </div>
-
-        <div class="design-card">
             <h2 class="subsection-title">Design Criteria & Functionality</h2>
             <p class="design-text">As we planned out the project and began working on it, these were some of the goals we set for the overall design of the project:</p>
             <ol>
@@ -199,7 +177,7 @@
                 <ol>
                     <li><u>Tradeoff</u>: Since the edge of the bowl was very thin, we needed to modify the gripper by adding an extra cushion. This allowed us to reach the requirement of actually being able to pick up the bowl.</li>
                 </ol>
-                <li><b>RealSense Camera</b> - We chose to use the RealSense Camera as our vision source, as opposed to the cameras attatched to the Sawyer itself and AR tags. We chose not to place an AR tag on the bowl/object itself because that would make classifcation of the object difficult. With the RealSense camera, we are able to get the depth information, allowing for pixel to point conversion.</li>
+                <li><b>RealSense Camera</b> - We chose to use the RealSense Camera as our vision source, as opposed to the cameras attatched to the Sawyer itself and AR tags. We chose not to place an AR tag on the bowl/object itself because that would make classifcation of the object difficult (the object would get occluded with the AR tag). With the RealSense camera, we are able to get the depth information, allowing for pixel to point conversion.</li>
                 <ol>
                     <li><u>Tradeoff</u>: The camera calibration is very sensitive. In order to properly compute the transforms between the different frames, we need to manually calculate the translation between the robot frame and camera frame everytime. This is prone to human error.</li>
                 </ol>
@@ -209,7 +187,7 @@
                 </ol>
                 <li><b>intera_interface & MoveIt!</b> - We chose to use inverse kinematics and motion planning through the intera_interface package and the MoveIt! pipeline.</li>
                 <ol>
-                    <li><u>Tradeoff</u>: The process to run the entire trajectory is very slow.</li>
+                    <li><u>Tradeoff</u>: The process to run the entire trajectory can sometimes be a little slow.</li>
                 </ol>
                 <li><b>Fixed Joint Angular Velocity for Tipping</b> - We chose to simplify the tipping trajectory by limiting the movement to only rotating joint 4 after reaching a standard fixed starting point.</li>
                 <ol>
