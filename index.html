@@ -56,7 +56,7 @@
         }
 
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             padding-top: 80px;
             background: var(--secondary-color);
         }
@@ -120,11 +120,75 @@
             margin-bottom: 1rem;
         }
 
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--secondary-color);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .team-background {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
         @media (max-width: 768px) {
             .hero-container {
                 grid-template-columns: 1fr;
             }
             .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
                 grid-template-columns: 1fr;
             }
             .nav-tabs {
@@ -162,7 +226,7 @@
 
     <section class="why-section">
         <div class="why-container">
-            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color);">Why Dish-n-Dash?</h2>
+            <h2 class="section-title">Why Dish-n-Dash?</h2>
             <div class="why-grid">
                 <div class="why-card">
                     <h3>The Problem</h3>
@@ -175,6 +239,34 @@
                 <div class="why-card">
                     <h3>The Impact</h3>
                     <p>Reduced waste contamination, lower operational costs, and promotion of eco-friendly habits among students, supporting schools' environmental goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3>Steph Akakabota</h3>
+                    <p class="team-role">Motion Planning & Execution</p>
+                    <p class="team-background">Mechanical Engineering major interested in biomimicry robotic design. Familiar with Solidworks, machine shop tools, and physics.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Abby O'Neill</h3>
+                    <p class="team-role">Gripper Setup & Camera Configuration</p>
+                    <p class="team-background">CS and DS major interested in robotic manipulation, as well as machine learning.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Pranitha Rao</h3>
+                    <p class="team-role">Pixel Coordinate Transforms</p>
+                    <p class="team-background">EECS major interested in biomedical applications of robotics.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Ria Doshi</h3>
+                    <p class="team-role">Object Detection with DETR & ResNet-50</p>
+                    <p class="team-background">CS major interested in robot learning.</p>
                 </div>
             </div>
         </div>
